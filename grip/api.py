@@ -11,7 +11,7 @@ from .renderers import GitHubRenderer, OfflineRenderer
 
 
 def create_app(path=None, user_content=False, context=None, username=None,
-               password=None, render_offline=False, render_wide=False,
+               password=None, render_offline=True, render_wide=False,
                render_inline=False, api_url=None, title=None, text=None,
                autorefresh=None, quiet=None, grip_class=None):
     """
@@ -47,7 +47,7 @@ def create_app(path=None, user_content=False, context=None, username=None,
 
 
 def serve(path=None, host=None, port=None, user_content=False, context=None,
-          username=None, password=None, render_offline=False,
+          username=None, password=None, render_offline=True,
           render_wide=False, render_inline=False, api_url=None, title=None,
           autorefresh=True, browser=False, quiet=None, grip_class=None):
     """
@@ -71,7 +71,7 @@ def clear_cache(grip_class=None):
 
 def render_page(path=None, user_content=False, context=None,
                 username=None, password=None,
-                render_offline=False, render_wide=False, render_inline=False,
+                render_offline=True, render_wide=False, render_inline=False,
                 api_url=None, title=None, text=None, quiet=None,
                 grip_class=None):
     """
@@ -83,7 +83,7 @@ def render_page(path=None, user_content=False, context=None,
 
 
 def render_content(text, user_content=False, context=None, username=None,
-                   password=None, render_offline=False, api_url=None):
+                   password=None, render_offline=True, api_url=None):
     """
     Renders the specified markup and returns the result.
     """
@@ -95,7 +95,7 @@ def render_content(text, user_content=False, context=None, username=None,
 
 
 def export(path=None, user_content=False, context=None,
-           username=None, password=None, render_offline=False,
+           username=None, password=None, render_offline=True,
            render_wide=False, render_inline=True, out_filename=None,
            api_url=None, title=None, quiet=False, grip_class=None):
     """

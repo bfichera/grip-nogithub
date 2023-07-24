@@ -6,12 +6,8 @@ from abc import ABCMeta, abstractmethod
 
 import requests
 
-try:
-    import markdown
-    from .vendor.mdx_urlize import UrlizeExtension
-except ImportError:
-    markdown = None
-    UrlizeExtension = None
+import markdown
+from .vendor.mdx_urlize import UrlizeExtension
 
 from .constants import DEFAULT_API_URL
 from .patcher import patch
@@ -97,13 +93,12 @@ class OfflineRenderer(ReadmeRenderer):
         """
         Renders the specified markdown content and embedded styles.
         """
-        if markdown is None:
-            import markdown
-        if UrlizeExtension is None:
-            from .mdx_urlize import UrlizeExtension
+        import markdown
+        from .vendor.mdx_urlize import UrlizeExtension
         return markdown.markdown(text, extensions=[
             'fenced_code',
-            'codehilite(css_class=highlight)',
+#             'codehilite(css_class=highlight)',
+            'codehilite',
             'toc',
             'tables',
             'sane_lists',
